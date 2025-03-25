@@ -56,16 +56,16 @@ The API uses JWT (JSON Web Token) authentication. You need to include the access
 curl -X POST http://localhost:8000/api/token/ \
   -H "Content-Type: application/json" \
   -d '{
-    "username": "your_username",
-    "password": "your_password"
+    "username": "prashant",
+    "password": "prashant"
   }'
 ```
 
 Response:
 ```json
 {
-    "access": "your.access.token",
-    "refresh": "your.refresh.token"
+    "access": "access_token",
+    "refresh": "refresh_token"
 }
 ```
 
@@ -74,7 +74,7 @@ Response:
 curl -X POST http://localhost:8000/api/token/refresh/ \
   -H "Content-Type: application/json" \
   -d '{
-    "refresh": "your.refresh.token"
+    "refresh": "refresh_token"
   }'
 ```
 
@@ -101,7 +101,7 @@ Response:
     "username": "prashant",
     "email": "prashant@example.com",
     "first_name": "Prashant",
-    "last_name": "Doe",
+    "last_name": "Gupta",
     "mobile": "Prashant",
     "created_at": "2025-03-24T10:00:00Z",
     "updated_at": "2025-03-24T10:00:00Z"
@@ -111,13 +111,13 @@ Response:
 2. Get User Details (Authentication required):
 ```bash
 curl -X GET http://localhost:8000/api/users/1/ \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 3. List All Users (Authentication required):
 ```bash
 curl -X GET http://localhost:8000/api/users/ \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 ### Task Management
@@ -126,7 +126,7 @@ curl -X GET http://localhost:8000/api/users/ \
 ```bash
 curl -X POST http://localhost:8000/api/tasks/ \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer your.access.token" \
+  -H "Authorization: Bearer access_token" \
   -d '{
     "name": "Implement User Authentication",
     "description": "Add JWT authentication to the API",
@@ -139,7 +139,7 @@ curl -X POST http://localhost:8000/api/tasks/ \
 ```bash
 curl -X POST http://localhost:8000/api/tasks/1/assign/ \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer your.access.token" \
+  -H "Authorization: Bearer access_token" \
   -d '{
     "user_ids": [1, 2]
   }'
@@ -148,26 +148,26 @@ curl -X POST http://localhost:8000/api/tasks/1/assign/ \
 3. Get Task Details:
 ```bash
 curl -X GET http://localhost:8000/api/tasks/1/ \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 4. List All Tasks:
 ```bash
 curl -X GET http://localhost:8000/api/tasks/ \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 5. Get Tasks for a Specific User:
 ```bash
 curl -X GET "http://localhost:8000/api/tasks/user_tasks/?user_id=1" \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 6. Update Task Status:
 ```bash
 curl -X PATCH http://localhost:8000/api/tasks/1/ \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer your.access.token" \
+  -H "Authorization: Bearer access_token" \
   -d '{
     "status": "IN_PROGRESS"
   }'
@@ -176,7 +176,7 @@ curl -X PATCH http://localhost:8000/api/tasks/1/ \
 7. Delete a Task:
 ```bash
 curl -X DELETE http://localhost:8000/api/tasks/1/ \
-  -H "Authorization: Bearer your.access.token"
+  -H "Authorization: Bearer access_token"
 ```
 
 ## Task Status Options
